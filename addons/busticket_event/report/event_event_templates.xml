@@ -62,29 +62,30 @@
                     font-weight: bold;
                     color: #000; /* Đảm bảo label có màu đen */
                 }
+                .qr_code_section {
+                    <!-- padding: 0 0 8px; -->
+                    text-align: center;
+                    border-bottom: 1px dashed #000;    
+                }
+                .qr_code_section p {
+                    font-size: 12px;
+                    <!-- margin-bottom: 10px; -->
+                    color: #000; /* Đảm bảo chữ màu đen */
+                }
+                .qr_code_section img {
+                    margin-bottom: 10px;
+                    max-width: 40%;
+                    height: auto;
+                }
                 .footer_section {
                     text-align: center;
-                    margin-top: 20px;
+                    margin-top: 10px;
                     padding-top: 10px;
-                    border-top: 1px dashed #000; /* Đường viền trên footer */
+                    <!-- border-top: 1px dashed #000; -->
                 }
                 .footer_section p {
                     font-size: 10px; /* Thay đổi cỡ chữ thành 10px cho footer */
                     color: #000; /* Đảm bảo chữ màu đen */
-                }
-                .qr_code_section {
-                    text-align: center;
-                    margin-top: 20px;
-                }
-                .qr_code_section p {
-                    font-size: 12px;
-                    margin-bottom: 10px; /* Giữ margin-bottom là 10px */
-                    color: #000; /* Đảm bảo chữ màu đen */
-                }
-                .qr_code_section img {
-                    margin-top: 10px;
-                    width: 100px;
-                    height: 100px;
                 }
             </style>
 
@@ -112,10 +113,14 @@
                 </div>
 
                 <div class="qr_code_section">
-                    <p><span class="label">Mã QR:</span></p>
+                    <!-- <p><span class="label">Mã QR:</span></p> -->
+                    <img t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee and attendee.barcode else '12345678901234567890'}}?&amp;width=152&amp;height=152&amp;quiet=0" 
+                        alt="QR Code"/>
+                    
                 </div>
 
                 <div class="footer_section">
+                    <p>Vui lòng có mặt trước giờ khởi hành 30 phút.</p>
                     <p>Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!</p>
                 </div>
             </div>
