@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Overriding the original report action -->
+        <record id="action_report_event_registration_attendee_list" model="ir.actions.report">
+            <field name="name">Customized Attendee List</field>
+            <field name="model">event.registration</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">event_custom_report.event_registration_attendee_list</field>
+            <field name="report_file">event_custom_report.event_registration_attendee_list</field>
+        </record>
+
+        <!-- Override attendee_list template -->
+        <template id="attendee_list" inherit_id="event.attendee_list">
+
+            <!-- Remove the Company column from the header -->
+            <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+            <!-- Remove the Company data in the rows -->
+            <xpath expr="//table/tbody/tr/td[2]" position="replace"/>
+
+            <!-- Remove the Ticket type column from the header -->
+            <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+            <!-- Remove the Ticket type data in the rows -->
+            <xpath expr="//table/tbody/tr/td[2]" position="replace"/>
+
+            <!-- Remove the QR Code column from the header -->
+            <xpath expr="//table/thead/tr/th[3]" position="replace"/>
+            <!-- Remove the QR Code data in the rows -->
+            <xpath expr="//table/tbody/tr/td[3]" position="replace"/>
+
+
+            <xpath expr="//table/thead/tr" position="inside">
+                <th>Email</th>
+                <th>Pickup</th>
+            </xpath>
+
+            <xpath expr="//table/tbody/tr" position="inside">
+                <td><t t-out="attendee.email"/></td>
+                <td><t t-out="attendee.pickup"/></td>
+            </xpath>
+
+        </template>
+
+        <!-- Customized Template -->
+        <template id="event_registration_attendee_list" inherit_id="event.event_registration_attendee_list">
+            <xpath expr="//t[@t-call='event.attendee_list']" position="attributes">
+                <attribute name="class">custom-attendee-list</attribute>
+            </xpath>
+        </template>
+    </data>
+</odoo>

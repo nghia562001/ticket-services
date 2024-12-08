@@ -1,0 +1,35 @@
+<odoo>
+    <!-- Kế thừa Tree View để thêm trường age và ẩn trường email -->
+    <record model="ir.ui.view" id="view_event_registration_tree_custom">
+        <field name="name">event.registration.tree.custom</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_tree"/>
+        <field name="arch" type="xml">
+            <!-- Chèn trường điểm đón sau trường phone -->
+            <xpath expr="//field[@name='phone']" position="after">
+                <field name="pickup"/>
+            </xpath>
+            <!-- Ẩn trường email -->
+            <xpath expr="//field[@name='email']" position="replace">
+                <field name="email" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Kế thừa Form View để thêm trường age và ẩn trường email -->
+    <record model="ir.ui.view" id="view_event_registration_form_custom">
+        <field name="name">event.registration.form.custom</field>
+        <field name="model">event.registration</field>
+        <field name="inherit_id" ref="event.view_event_registration_form"/>
+        <field name="arch" type="xml">
+            <!-- Chèn trường age sau trường phone -->
+            <xpath expr="//field[@name='phone']" position="after">
+                <field name="pickup"/>
+            </xpath>
+            <!-- Ẩn trường email -->
+            <xpath expr="//field[@name='email']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record>
+</odoo>
