@@ -40,7 +40,7 @@
                     border-bottom: 1px dashed #000; /* Thêm viền dưới cho details_section */
                 }
                 .details_section p {
-                    font-size: 14px; /* Thay đổi cỡ chữ thành 12px */
+                    font-size: 12px; /* Thay đổi cỡ chữ thành 12px */
                     margin: 5px 0;
                     color: #000; /* Đảm bảo chữ màu đen */
                 }
@@ -54,7 +54,7 @@
                     border-bottom: 1px dashed #000; /* Thêm viền dưới cho sales_info_section */
                 }
                 .sales_info_section p {
-                    font-size: 14px; /* Thay đổi cỡ chữ thành 12px */
+                    font-size: 12px; /* Thay đổi cỡ chữ thành 12px */
                     margin: 5px 0;
                     color: #000; /* Đảm bảo chữ màu đen */
                 }
@@ -77,7 +77,7 @@
                     margin-top: 20px;
                 }
                 .qr_code_section p {
-                    font-size: 14px;
+                    font-size: 12px;
                     margin-bottom: 10px; /* Giữ margin-bottom là 10px */
                     color: #000; /* Đảm bảo chữ màu đen */
                 }
