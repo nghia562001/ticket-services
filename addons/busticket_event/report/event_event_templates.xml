@@ -4,89 +4,123 @@
     <template id="event_report_template_badge_card" inherit_id="event.event_report_template_badge_card">
         <!-- Ghi đè nội dung -->
         <xpath expr="//div[@class='o_event_badge_ticket_wrapper']" position="replace">
-            <!-- Nội dung mới -->
-<div style="font-size: 10px; margin: 0; padding: 0; font-family: Calibri, sans-serif; color: #000;">
-    <div style="width: 2.52in; height: 6.02in; margin: 0; box-sizing: border-box; position: relative; overflow: hidden;">
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    box-sizing: border-box;
+                }
+                .invoice {
+                    width: 2.52in; /* Giới hạn chiều rộng của hóa đơn là 2.52in */
+                    margin: 5px;
+                    padding: 20px;
+                    border: 1px solid #ccc; /* Đường viền bao quanh hóa đơn */
+                    border-radius: 8px;
+                    font-family: Calibri, sans-serif;
+                    color: #000; /* Màu chữ toàn bộ */
+                }
+                .header_section {
+                    text-align: center;
+                    margin-bottom: 10px; /* Giữ margin-bottom là 10px */
+                    <!-- padding-bottom: 10px; -->
+                    border-bottom: 1px dashed #000; /* Đường viền dưới header */
+                }
+                .header_section h1 {
+                    font-size: 16px;
+                    <!-- margin-bottom: 5px; -->
+                    color: #000; /* Đảm bảo chữ màu đen */
+                }
+                .header_section p {
+                    font-size: 10px;
+                    color: #000; /* Đảm bảo chữ màu đen */
+                }
+                .details_section {
+                    margin-bottom: 10px; /* Giữ margin-bottom là 10px */
+                    padding: 0 0 8px;
+                    border-bottom: 1px dashed #000; /* Thêm viền dưới cho details_section */
+                }
+                .details_section p {
+                    font-size: 14px; /* Thay đổi cỡ chữ thành 12px */
+                    margin: 5px 0;
+                    color: #000; /* Đảm bảo chữ màu đen */
+                }
+                .details_section .label {
+                    font-weight: bold;
+                    color: #000; /* Đảm bảo label có màu đen */
+                }
+                .sales_info_section {
+                    margin-bottom: 10px; /* Đảm bảo margin-bottom là 10px */
+                    padding: 0 0 8px;
+                    border-bottom: 1px dashed #000; /* Thêm viền dưới cho sales_info_section */
+                }
+                .sales_info_section p {
+                    font-size: 14px; /* Thay đổi cỡ chữ thành 12px */
+                    margin: 5px 0;
+                    color: #000; /* Đảm bảo chữ màu đen */
+                }
+                .sales_info_section .label {
+                    font-weight: bold;
+                    color: #000; /* Đảm bảo label có màu đen */
+                }
+                .footer_section {
+                    text-align: center;
+                    margin-top: 20px;
+                    padding-top: 10px;
+                    border-top: 1px dashed #000; /* Đường viền trên footer */
+                }
+                .footer_section p {
+                    font-size: 10px; /* Thay đổi cỡ chữ thành 10px cho footer */
+                    color: #000; /* Đảm bảo chữ màu đen */
+                }
+                .qr_code_section {
+                    text-align: center;
+                    margin-top: 20px;
+                }
+                .qr_code_section p {
+                    font-size: 14px;
+                    margin-bottom: 10px; /* Giữ margin-bottom là 10px */
+                    color: #000; /* Đảm bảo chữ màu đen */
+                }
+                .qr_code_section img {
+                    margin-top: 10px;
+                    width: 100px;
+                    height: 100px;
+                }
+            </style>
 
-        <!-- Header Section -->
-        <div style="text-align: center; border-bottom: 1px dashed #000; padding-bottom: 10px; margin-bottom: 10px;">
-            <h2 style="margin: 5px 0; font-size: 14px;">Nhà xe Đăng Phượng</h2>
-            <span style="font-size: 10px;">Hotline: 0944 768 769</span>
-        </div>
+            <div class="invoice">
+                <div class="header_section">
+                    <h1>Hóa Đơn Vé Xe Khách</h1>
+                    <p>Công ty Vận Tải ABC</p>
+                </div>
 
-        <!-- Title -->
-        <h2 style="font-weight: bold; font-size: 14px; text-align: center; padding-bottom: 4px; padding-top: 4px;">VÉ XE KHÁCH</h2>
+                <div class="details_section">
+                    <p><span class="label">Mã vé:</span> VX123456</p>
+                    <p><span class="label">Họ và tên:</span> Nguyễn Văn A</p>
+                    <p><span class="label">Số điện thoại:</span> 0123 456 789</p>
+                    <p><span class="label">Tuyến đường:</span> Hà Nội - Hồ Chí Minh</p>
+                    <p><span class="label">Ngày khởi hành:</span> 20/12/2024</p>
+                    <p><span class="label">Giờ khởi hành:</span> 08:00 AM</p>
+                    <p><span class="label">Số ghế:</span> 15B</p>
+                    <p><span class="label">Giá vé:</span> 500,000 VND</p>
+                </div>
 
-        <!-- Ticket Information -->
-        <div style="font-size: 12px; border-bottom: 1px dashed #000; padding-bottom: 10px;">
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Tuyến xe:</span>
-                <span style="float: left;">Bến Xe A → Bến Xe B</span>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Khởi hành:</span>
-                <span style="float: left;"
-                t-field="event.date_begin"/>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Họ tên:</span>
-                <span style="float: left;"
-                t-field="attendee.name"/>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Điện thoại:</span>
-                <span style="float: left;"
-                t-field="attendee.phone"/>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Số ghế:</span>
-                <span style="float: left;">12A</span>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Giá vé:</span>
-                <span style="float: left;">170,000 VND</span>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Điểm lên xe:</span>
-                <span style="float: left;">Bến Xe A, Cổng 3</span>
-            </div>
-        </div>
+                <div class="sales_info_section">
+                    <p><span class="label">Nhân viên bán hàng:</span> Trần Văn B</p>
+                    <p><span class="label">Số hóa đơn:</span> HD789123</p>
+                    <p><span class="label">Ngày in hóa đơn:</span> 08/12/2024</p>
+                </div>
 
-        <!-- Info Bill Section -->
-        
-        <div style="font-size: 12px; border-bottom: 1px dashed #000; margin: 10px 0; padding-bottom: 10px;">
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Hóa đơn:</span>
-                <t t-set="formatted_date" t-value="event.date_begin.strftime('%Y-%m-%d %H:%M:%S') if event.date_begin else 'Unknown Date'"/>
-                <t t-set="combined_value" t-value="formatted_date + ' - ' + str(attendee.id)"/>
-                <span style="float: left;" t-esc="combined_value"/>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Ngày in:</span>
-                <span style="float: left;">24/11/2024</span>
-            </div>
-            <div style="overflow: hidden;">
-                <span style="font-weight: bold; width: 40%; float: left;">Nhân viên:</span>
-                <span style="float: left;">Nguyễn Văn B</span>
-            </div>
-        </div>
+                <div class="qr_code_section">
+                    <p><span class="label">Mã QR:</span></p>
+                </div>
 
-        <!-- QR Code Section -->
-        <div style="text-align: center;">
-            <img t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee and attendee.barcode else '12345678901234567890'}}?&amp;width=152&amp;height=152&amp;quiet=0" 
-                 alt="QR Code" 
-                 style="max-width: 50%; height: auto;" />
-        </div>
-
-        <!-- Footer Section -->
-        <div style="position: absolute; bottom: 10px; text-align: center; border-top: 1px dashed #000; padding-top: 10px; font-size: 10px;">
-            <span style="display: block;">Vui lòng có mặt trước giờ khởi hành 30 phút.</span>
-            <span style="display: block;">Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!</span>
-        </div>
-    </div>
-</div>
-
+                <div class="footer_section">
+                    <p>Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!</p>
+                </div>
+            </div>
         </xpath>
+        
     </template>
 
 
