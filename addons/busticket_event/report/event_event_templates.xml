@@ -5,7 +5,7 @@
         <!-- Ghi đè nội dung -->
         <xpath expr="//div[@class='o_event_badge_ticket_wrapper']" position="replace">
             <!-- Nội dung mới -->
-            <div style="margin: 0; padding: 0; font-family: Calibri, sans-serif; color: #000;">
+            <div style="font-size: 14px; margin: 0; padding: 0; font-family: Calibri, sans-serif; color: #000;">
                 <div style="width: 2.52in; height: 6.02in; margin: 0; box-sizing: border-box; position: relative; overflow: hidden;">
 
                     <!-- Header Section -->
