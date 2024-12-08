@@ -112,32 +112,35 @@
                     <p><span class="label">Ngày in hóa đơn:</span> 08/12/2024</p>
                 </div>
 
-                <div class="qr_code_section">
-                    <!-- <p><span class="label">Mã QR:</span></p> -->
+                <!-- <div class="qr_code_section">
                     <img t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee and attendee.barcode else '12345678901234567890'}}?&amp;width=152&amp;height=152&amp;quiet=0" 
                         alt="QR Code"/>
-                    
-                </div>
+                </div> -->
 
                 <div class="footer_section">
                     <p>Vui lòng có mặt trước giờ khởi hành 30 phút.</p>
                     <p>Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!</p>
                 </div>
+                
+<div class="event-badge">
+    <div class="organizer-logo">
+        <img t-if="event.organizer_id.image_256" class="o_event_badge_logo mb-2" t-att-src="image_data_uri(event.organizer_id.image_256)"/>
+    </div>
+    <div class="qr-code">
+        <img t-att-class="'mb-2' + (' ms-5' if event.organizer_id.image_256 else '')" t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee else '12345678901234567890'}}?&amp;width=116&amp;height=116&amp;quiet=0" alt="QR Code"/>
+    </div>
+    <div class="barcode-text">
+        <t t-if="event.use_barcode">
+            <t t-if="attendee">
+                <span t-field="attendee.barcode" class="barcode ms-2" t-options="{'widget': 'barcode', 'width': 200, 'height': 84, 'quiet': 0, 'humanreadable': 1}"/>
+            </t>
+            <t t-else="">
+                <span t-out="'12345678901234567890'" class="barcode ms-2" t-options="{'widget': 'barcode', 'width': 200, 'height': 84, 'quiet': 0, 'humanreadable': 1}"/>
+            </t>
+        </t>
+    </div>
+</div>
 
-            <div class="position-absolute bottom-0 w-100 text-center">
-                <img t-if="event.organizer_id.image_256" class="o_event_badge_logo text-center mb-2" t-att-src="image_data_uri(event.organizer_id.image_256)"/>
-                <span t-if="event.badge_format != 'A4_french_fold'" class="o_event_badge_barcode_container mb-2">
-                    <img t-att-class="'mb-2' + (' ms-5' if event.organizer_id.image_256 else '')" t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee else '12345678901234567890'}}?&amp;width=116&amp;height=116&amp;quiet=0" alt="QR Code"/>
-                    <t t-if="event.use_barcode">
-                        <t t-if="attendee">
-                            <span t-field="attendee.barcode" class="barcode ms-2" t-options="{'widget': 'barcode', 'width': 200, 'height': 84, 'quiet': 0, 'humanreadable': 1}"/>
-                        </t>
-                        <t t-elif="not attendee">
-                            <span t-out="'12345678901234567890'" class="barcode ms-2" t-options="{'widget': 'barcode', 'width': 200, 'height': 84, 'quiet': 0, 'humanreadable': 1}"/>
-                        </t>
-                    </t>
-                </span>
-            </div>
             </div>
         </xpath>
         
