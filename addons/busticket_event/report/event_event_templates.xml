@@ -12,10 +12,10 @@
                 }
                 .invoice {
                     width: 2.52in; /* Giới hạn chiều rộng của hóa đơn là 2.52in */
-                    margin: 5px;
-                    padding: 20px;
-                    border: 1px solid #ccc; /* Đường viền bao quanh hóa đơn */
-                    border-radius: 8px;
+                    margin: 1px;
+                    padding: 8px;
+                    border: 1px dashed #ccc; /* Đường viền bao quanh hóa đơn */
+
                     font-family: Calibri, sans-serif;
                     color: #000; /* Màu chữ toàn bộ */
                 }
