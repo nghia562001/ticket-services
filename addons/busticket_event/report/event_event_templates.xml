@@ -113,12 +113,20 @@
                 </div>
 
                 <div class="qr_code_section">
-<img t-att-class="'mb-2' + (' ms-5' if event.organizer_id.image_256 else '')" t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee else '12345678901234567890'}}?&amp;width=116&amp;height=116&amp;quiet=0" alt="QR Code"/>
+<img t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee else '12345678901234567890'}}?&amp;width=116&amp;height=116&amp;quiet=0" alt="QR Code"/>
 <span t-field="attendee.barcode" class="barcode ms-2" t-options="{'widget': 'barcode', 'width': 200, 'height': 84, 'quiet': 0, 'humanreadable': 1}"/>
                     <img t-attf-src="/report/barcode/QR/{{ attendee.barcode }}?width=87&amp;height=87&amp;quiet=0" alt="QR Code"/>
 
 
                     <img t-att-src="'/report/barcode/?barcode_type=Code128&amp;value=1234567841&amp;width=400&amp;height=100'" alt="Barcode"/>
+
+<img 
+    t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee else '12345678901234567890'}}?&amp;width=116&amp;height=116&amp;quiet=0" 
+    alt="QR Code" 
+    class="img-fluid" 
+    id="qr-code" 
+    style="max-width: 100%; height: auto;" 
+    loading="lazy"/>
 
                 </div>
 
