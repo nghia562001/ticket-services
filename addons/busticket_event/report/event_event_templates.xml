@@ -112,19 +112,14 @@
                     <p><span class="label">Ngày in hóa đơn:</span> 08/12/2024</p>
                 </div>
 
-                <!-- <div class="qr_code_section">
-                    <img t-attf-src="/report/barcode/QR/{{attendee.barcode if attendee and attendee.barcode else '12345678901234567890'}}?&amp;width=152&amp;height=152&amp;quiet=0" 
-                        alt="QR Code"/>
-                </div> -->
+                <div class="qr_code_section">
+                    <img t-attf-src="'/report/barcode/?barcode_type=QR&amp;value={{ attendee.barcode }}&amp;width=87&amp;height=87&amp;quiet=0'" alt="QR Code"/>
+                </div>
 
                 <div class="footer_section">
                     <p>Vui lòng có mặt trước giờ khởi hành 30 phút.</p>
                     <p>Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!</p>
                 </div>
-                
-<img t-att-src="'/report/barcode/QR/12345678901234567890?width=116&amp;height=116&amp;quiet=0'" 
-     alt="Test QR Code" />
-
 
             </div>
         </xpath>
