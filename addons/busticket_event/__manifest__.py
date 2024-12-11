@@ -5,6 +5,7 @@
     'author': 'Your Name',
     'depends': ['event'],
     'data': [
+        'views/event_event_view.xml',
         'views/event_registration_view.xml',
 
         'report/event_registration_report.xml',
