@@ -7,16 +7,12 @@
             <field name="model">event.event</field>
             <field name="inherit_id" ref="event.view_event_kanban"/>
             <field name="arch" type="xml">
-                <!-- Ẩn đoạn div chứa điều kiện về date_begin và date_end -->
-                <!-- <xpath expr="//aside/div[contains(@t-if, 'record.date_begin.raw_value !== record.date_end.raw_value')]" position="attributes">
-                    <attribute name="style">display: none;</attribute>
-                </xpath> -->
                 <xpath expr="//aside[@class='col-4 text-bg-primary p-2 text-center d-flex flex-column justify-content-center']" position="replace">
                     <aside class="col-4 text-bg-primary p-2 text-center d-flex flex-column justify-content-center">
                         <div t-esc="luxon.DateTime.fromISO(record.date_end.raw_value).toFormat('d')" class="fs-1"/>
                         <t t-esc="luxon.DateTime.fromISO(record.date_end.raw_value).toFormat('MMM yyyy')"/>
                         <div>
-                            <t t-esc="luxon.DateTime.fromISO(record.date_begin.raw_value).toFormat('t')"/>
+                            <t t-esc="luxon.DateTime.fromISO(record.date_end.raw_value).toFormat('t')"/>
                         </div>
                     </aside>
                 </xpath>
