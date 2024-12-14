@@ -3,7 +3,7 @@
 
     <template id="event_report_template_badge_card" inherit_id="event.event_report_template_badge_card">
         <!-- Ghi đè nội dung -->
-        <xpath expr="//div[@class='o_event_badge_ticket_wrapper']" position="replace">
+        <xpath expr="//div[contains(@class, 'o_event_badge_ticket_wrapper')]" position="replace">
             <style>
                 * {
                     margin: 0;
@@ -166,47 +166,21 @@
 
             </div>
         </xpath>
-        
     </template>
 
-
-    <template id="event_report_template_full_page_ticket" inherit_id="event.event_report_template_full_page_ticket">
-        <xpath expr="//div[@class='row page']" position="replace">
-        <h1>Attendee list</h1>
-        <div class="row" style="font-size: 14px;">
-            <div class="col-7">
-                <div t-out="event.name"/>
-            </div>
-            <div class="col-5">
-                <span t-out="event.date_begin_located"/>
-                <i class="fa fa-arrow-right"/>
-                <span t-out="event.date_end_located"/>
-            </div>
-        </div>
-        <table class="table mt-3" style="page-break-after:always;">
-            <thead>
-                <tr class="text-start">
-                    <th>Name</th>
-                    <th>Company</th>
-                    <th>Ticket type</th>
-                    <th>Phone number</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr t-foreach="attendees" t-as="attendee">
-                    <td><t t-out="attendee.name"/></td>
-                    <td><t t-out="attendee.company_name"/></td>
-                    <td><t t-out="attendee.event_ticket_id.name"/></td>
-                    <td><t t-out="attendee.phone"/></td>
-                    <td class="text-center">
-                        <t t-if="attendee.barcode">
-                            <img t-attf-src="/report/barcode/QR/{{ attendee.barcode }}?&amp;width=87&amp;height=87&amp;quiet=0" alt="QR Code"/>
+    <template id="event_registration_report_template_full_page_ticket" inherit_id="event.event_registration_report_template_full_page_ticket">
+        <xpath expr="//t[contains(@t-foreach, 'docs')]" position="replace">
+            <t t-call="web.html_container">
+                <t t-call="web.internal_layout">
+                    <t t-foreach="docs.grouped('event_id').items()" t-as="group">
+                        <t t-call="event.attendee_list">
+                            <t t-set="event" t-value="group[0].with_context(tz=group[0].date_tz)"/>
+                            <t t-set="attendees" t-value="group[1]"/>
                         </t>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                    </t>
+                </t>
+            </t>
         </xpath>
     </template>
+
 </odoo>
