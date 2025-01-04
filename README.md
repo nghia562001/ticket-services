@@ -1,10 +1,22 @@
+Hướng dẫn clone addons ticket-services cho Odoo
+----
+
+> **`Để clone addons ticket-services, chạy các lệnh sau:`**
+
+```bash
+cd /opt/odoo/odoo-custom-addons
+sudo git pull origin main
+```
+
+> **`Để clone addons ticket-services, chạy các lệnh sau:`**
+
 Hướng dẫn pull addons ticket-services cho Odoo
 ----
 
 > **`Để pull addons ticket-services, chạy các lệnh sau:`**
 
 ```bash
-cd /opt/odoo/odoo-custom-addons
+cd /opt/odoo/odoo-custom-addons/ticket-services
 sudo git pull origin main
 ```
 
