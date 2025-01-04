@@ -15,3 +15,9 @@ sudo systemctl daemon-reload
 sudo systemctl restart odoo
 sudo systemctl enable odoo
 ```
+
+> **`Kiểm tra status:`**
+
+```bash
+sudo systemctl status odoo
+```
