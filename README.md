@@ -1,7 +1,7 @@
 Hướng dẫn clone addons ticket-services cho Odoo
 ----
 
-> **`Để clone addons ticket-services, chạy các lệnh sau:`**
+> **Để `clone` addons `ticket-services`, chạy các lệnh sau:**
 
 ```bash
 cd /opt/odoo/odoo-custom-addons
