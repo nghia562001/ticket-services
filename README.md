@@ -4,7 +4,7 @@ Hướng dẫn pull addons ticket-services cho Odoo
 > **`Để pull addons ticket-services, chạy các lệnh sau:`**
 
 ```bash
-cd /opt/odoo/odoo-custom-addons/ticket-services
+cd /opt/odoo/odoo-custom-addons
 sudo git pull origin main
 ```
 
