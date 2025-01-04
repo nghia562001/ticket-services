@@ -18,7 +18,8 @@ cd /opt/odoo/odoo-custom-addons/ticket-services
 sudo git pull origin main
 ```
 
-> **Khởi động lại services, chạy các lệnh sau:**
+Khởi động lại services
+-
 
 ```bash
 sudo systemctl daemon-reload
