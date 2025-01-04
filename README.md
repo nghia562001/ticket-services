@@ -20,7 +20,7 @@ sudo git pull origin main
 
 Khởi động lại các dịch vụ trong services
 ----
-> **Để `restart` dịch vụ services cập nhật addons `ticket-services`, chạy các lệnh sau:**
+> **Để `restart` dịch vụ cập nhật addons `ticket-services`, chạy các lệnh sau:**
 
 ```bash
 sudo systemctl daemon-reload
