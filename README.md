@@ -33,3 +33,17 @@ sudo systemctl enable odoo
 ```bash
 sudo systemctl status odoo
 ```
+
+
+# Hướng dẫn Clone Addons `ticket-services` cho Odoo
+
+Hướng dẫn này sẽ giúp bạn `clone` addons **`ticket-services`** vào hệ thống Odoo của bạn. Hãy làm theo các bước dưới đây.
+
+---
+
+## 📂 Bước 1: Chuyển đến thư mục chứa custom addons của Odoo
+
+Trước tiên, hãy đảm bảo bạn đang ở đúng thư mục để lưu trữ các custom addons. Chạy lệnh sau:
+
+```bash
+cd /opt/odoo/odoo-custom-addons
