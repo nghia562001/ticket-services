@@ -28,7 +28,7 @@ sudo systemctl restart odoo
 sudo systemctl enable odoo
 ```
 
-> **`Kiểm tra status:`**
+> **Kiểm tra trạng thái `status` của dịch vụ:**
 
 ```bash
 sudo systemctl status odoo
