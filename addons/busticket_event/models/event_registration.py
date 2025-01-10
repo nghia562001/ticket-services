@@ -7,6 +7,48 @@ class EventRegistration(models.Model):
     _inherit = 'event.registration'
 
     pickup = fields.Char(string='Pick up', translate=True)
+    
+    PROVINCE = [
+        ('00', 'Null'),
+        ('01', 'Sài Gòn'),
+        ('02', 'Long An'),
+        ('03', 'Tiền Giang'),
+        ('04', 'Vĩnh Long'),
+        ('05', 'Cần Thơ'),
+        ('06', 'Hậu Giang'),
+        ('07', 'Sóc Trăng'),
+        ('08', 'Bạc Liêu'),
+        ('09', 'Cà Mau'),
+    ]
+
+    pickup_point = fields.Selection(
+        selection=PROVINCE,
+        string="Pickup Point",
+        required=True,
+        default='00',
+    )
+
+    dropoff_point = fields.Selection(
+        selection=PROVINCE,
+        string="Dropoff Point",
+        required=True,
+        default='00',
+    )
+
+    price = fields.Float(string="Price", compute="_compute_price")
+
+    # Bảng giá giữa các tỉnh
+    PRICE_MAP = {
+        ('01', '09'): 170000,  # Sài Gòn -> Cà Mau
+        # Thêm các tuyến khác nếu cần
+    }
+
+    @api.depends('pickup_point', 'dropoff_point')
+    def _compute_price(self):
+        for record in self:
+            key = (record.pickup_point, record.dropoff_point)
+            reverse_key = (record.dropoff_point, record.pickup_point)  # Kiểm tra chiều ngược lại
+            record.price = self.PRICE_MAP.get(key) or self.PRICE_MAP.get(reverse_key) or 0
 
     @api.model
     def generate_qr_code(self, data):

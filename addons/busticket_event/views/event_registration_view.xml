@@ -13,6 +13,9 @@
             <xpath expr="//field[@name='phone']" position="replace">
                 <field name="phone"/>
                 <field name="pickup" string="Điểm đón"/>
+                <field name="pickup_point" string="Điểm đi"/>
+                <field name="dropoff_point" string="Điểm đến"/>
+                <field name="price"/>
             </xpath>
 
         </field>
@@ -27,6 +30,9 @@
             <!-- Chèn trường age sau trường phone -->
             <xpath expr="//field[@name='phone']" position="after">
                 <field name="pickup" string="Điểm đón"/>
+                <field name="pickup_point" string="Điểm đi"/>
+                <field name="dropoff_point" string="Điểm đến"/>
+                <field name="price"/>
             </xpath>
             <!-- Ẩn trường email -->
             <xpath expr="//field[@name='email']" position="attributes">
